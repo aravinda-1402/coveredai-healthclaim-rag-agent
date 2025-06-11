@@ -5,7 +5,7 @@ CoveredAI is a full-stack AI-powered application that helps users **analyze**, *
 ---
 ## 🎥 Video Walkthrough
 
-> ⏯️ [Click to watch the demo video](./assets/demo/demo.mp4)
+> ⏯️ [Click to watch the demo video](https://drive.google.com/file/d/1zPRuA_PAbbWTzOH-Ba9oXtFRFgHmPqtM/view?usp=sharing)
 ---
 
 ## 📸 Demo
