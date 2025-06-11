@@ -1,58 +1,70 @@
-# CoveredAI - Healthcare Insurance Document Assistant
+# Health Insurance Plan Comparison Tool
 
-CoveredAI is an intelligent document analysis application that helps users understand their healthcare insurance documents through natural language interactions. The application uses advanced AI to process insurance documents and provide accurate, context-aware answers to coverage-related questions.
+A sophisticated web application that helps users analyze, compare, and understand health insurance plans using AI-powered document processing and natural language interactions.
 
-## Features
+## 🌟 Features
 
 ### Document Management
-- **PDF Upload**: Upload multiple insurance documents in PDF format
-- **Document Organization**: Manage and select specific documents for analysis
-- **Secure Storage**: Documents are securely stored and processed
-- **Document Deletion**: Remove uploaded documents when no longer needed
+- **Secure Upload**: Support for PDF and DOCX insurance documents
+- **Document Validation**: Automatic verification of insurance-related documents
+- **PII/PHI Protection**: Automatic sanitization of sensitive personal information
 
-### AI-Powered Analysis
-- **Intelligent QA System**: Ask natural language questions about your insurance coverage
-- **Smart Summarization**: Get concise summaries of your insurance plans
-- **Context-Aware Responses**: Answers are provided with relevant source citations
-- **Multi-Document Analysis**: Cross-reference information across multiple documents
+### Plan Analysis
+- **Smart Extraction**: Automatically extracts key benefits and coverage details
+- **Benefits Breakdown**: Clear presentation of:
+  - Individual & Family Deductibles
+  - Out-of-pocket Maximums
+  - Copays (Primary Care, Specialist, ER, Urgent Care)
+  - Prescription Drug Coverage
+  - Mental Health Coverage
 
-### User Experience
-- **Google OAuth Authentication**: Secure login with your Google account
-- **Intuitive Interface**: Clean, modern UI with responsive design
-- **Interactive Q&A**: Suggested questions and real-time responses
-- **Source Verification**: View source excerpts for answer verification
-- **Report Generation**: Download detailed QA reports in PDF format
+### Plan Comparison
+- **Side-by-side Comparison**: Compare up to 3 insurance plans simultaneously
+- **Difference Highlighting**: Easily identify variations between plans
+- **Custom Labeling**: Add custom labels to plans for easy reference
 
-## Technical Stack
+### Interactive Features
+- **AI-Powered Q&A**: Ask questions about your insurance plans in natural language
+- **Smart Summaries**: Get concise summaries of plan details
+- **Suggested Questions**: AI-generated relevant questions about your plans
+- **Export Capabilities**: Generate detailed PDF reports of your analysis
+
+### Security & Privacy
+- **Google OAuth Integration**: Secure user authentication
+- **Session Management**: Persistent user sessions
+- **HIPAA Considerations**: Built-in PII/PHI sanitization
+- **Secure File Handling**: Temporary file processing with automatic cleanup
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- React with TypeScript
-- TailwindCSS for styling
-- Responsive design principles
-- Modern component architecture
+- **React 18**: Modern UI framework
+- **Material-UI**: Polished component library
+- **React Router**: Client-side routing
+- **TypeScript**: Type-safe development
 
 ### Backend
-- Flask Python server
-- PyPDF2 for PDF processing
-- Advanced text chunking with RecursiveCharacterTextSplitter
-- Flask-Dance for OAuth integration
-- Flask-Session for server-side session management
-- ReportLab for PDF report generation
+- **Flask**: Python web framework
+- **LangChain**: AI/LLM integration framework
+- **OpenAI**: GPT-powered analysis
+- **FAISS**: Vector similarity search
+- **PyMuPDF**: PDF processing
+- **python-docx**: DOCX file handling
 
-### AI/ML
-- RAG (Retrieval Augmented Generation) for accurate responses
-- Context-aware document processing
-- Optimized token management
-- Smart text chunking for improved accuracy
+### AI/ML Features
+- **Document Processing**: Intelligent text extraction and analysis
+- **Semantic Search**: Context-aware document querying
+- **Natural Language Processing**: Advanced text processing capabilities
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 - Python 3.8+
-- Node.js 14+
-- npm or yarn
+- Node.js 16+
+- OpenAI API Key
+- Google OAuth Credentials
 
-### Installation
+### Environment Setup
 
 1. Clone the repository:
 ```bash
@@ -60,42 +72,37 @@ git clone [repository-url]
 cd [repository-name]
 ```
 
-2. Set up the backend:
+2. Backend Setup:
 ```bash
 cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Set up the frontend:
+3. Create `.env` file in backend directory:
+```env
+OPENAI_API_KEY=your_openai_api_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+FLASK_SECRET_KEY=your_secret_key
+```
+
+4. Frontend Setup:
 ```bash
 cd frontend
 npm install
 ```
 
-4. Configure environment variables:
-Create `.env` files in both frontend and backend directories with the necessary configurations:
-
-Backend `.env`:
-```
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-SECRET_KEY=your_secret_key
-```
-
-Frontend `.env`:
-```
-REACT_APP_API_URL=http://localhost:5000
-```
-
 ### Running the Application
 
-1. Start the backend server:
+1. Start the Backend:
 ```bash
 cd backend
-python app.py
+flask run
 ```
 
-2. Start the frontend development server:
+2. Start the Frontend:
 ```bash
 cd frontend
 npm start
@@ -103,27 +110,30 @@ npm start
 
 The application will be available at `http://localhost:3000`
 
-## Usage
+## 🔒 Security Considerations
 
-1. **Login**: Sign in using your Google account
-2. **Upload Documents**: Upload your insurance PDFs through the drag-and-drop interface
-3. **Ask Questions**: Use the question input to ask about your coverage
-4. **View Answers**: Get AI-powered responses with source citations
-5. **Generate Reports**: Download comprehensive QA reports
-6. **Manage Documents**: Delete documents when no longer needed
+- All uploaded files are processed securely and temporarily
+- Sensitive information is automatically sanitized
+- Files uploaded for comparison are not stored permanently
+- User authentication is required for all operations
+- Session management ensures secure access to user data
 
-## Security Features
+## 💡 Usage Tips
 
-- Secure OAuth2 authentication
-- Server-side session management
-- Secure document storage
-- Protected API endpoints
-- Client-side route protection
+1. **Document Upload**:
+   - Use clear, scanned copies of insurance documents
+   - Ensure documents are in PDF or DOCX format
+   - Label plans clearly for easy comparison
 
-## Contributing
+2. **Plan Comparison**:
+   - Upload up to 3 plans simultaneously
+   - Use the "Show Differences Only" feature to highlight variations
+   - Export comparison results for future reference
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+3. **AI Interaction**:
+   - Ask specific questions about coverage details
+   - Use suggested questions for guidance
+   - Request summaries for complex sections
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
+## 📝 License
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
