@@ -1,113 +1,91 @@
-# CoveredAI - Intelligent Health Insurance Plan Analysis
+# 🧠 CoveredAI - Intelligent Health Insurance Plan Analysis
 
-A sophisticated web application that helps users analyze, compare, and understand health insurance plans using AI-powered document processing and natural language interactions.
+CoveredAI is a full-stack AI-powered application that helps users **analyze**, **compare**, and **understand** health insurance plans using **RAG (Retrieval-Augmented Generation)** and natural language interaction. Whether you’re a policyholder or analyst, CoveredAI extracts critical information, answers questions, and enables smarter comparisons between plans.
+
+---
 
 ## 🌟 Features
 
-### Document Management
-- **Secure Upload**: Support for PDF and DOCX insurance documents
-- **Document Validation**: Automatic verification of insurance-related documents
+### 📄 Document Management
+- **Secure Upload** of PDF and DOCX insurance documents
+- **Document Validation** to ensure uploaded files are insurance-related
+- **Temporary Storage & Cleanup** for enhanced privacy
 
-### Plan Analysis
-- **Smart Extraction**: Automatically extracts key benefits and coverage details
-- **Benefits Breakdown**: Clear presentation of:
-  - Individual & Family Deductibles
-  - Out-of-pocket Maximums
-  - Copays (Primary Care, Specialist, ER, Urgent Care)
-  - Prescription Drug Coverage
+### 📊 Plan Analysis
+- **Smart Extraction** of key plan components
+- **Benefits Breakdown** including:
+  - Deductibles (Individual & Family)
+  - Out-of-Pocket Maximums
+  - Copays (Primary, Specialist, ER, Urgent Care)
+  - Prescription Coverage
   - Mental Health Coverage
+- **AI Summarization** for quick understanding
 
-### Plan Comparison
-- **Side-by-side Comparison**: Compare up to 3 insurance plans simultaneously
-- **Difference Highlighting**: Easily identify variations between plans
-- **Custom Labeling**: Add custom labels to plans for easy reference
+### 🧠 RAG-Based Q&A
+- **Ask Questions in Plain English**
+- Uses **semantic search + LLMs (GPT)** to return answers grounded in your actual insurance documents
+- **Suggested Questions** to guide your exploration
 
-### Interactive Features
-- **AI-Powered Q&A**: Ask questions about your insurance plans in natural language
-- **Smart Summaries**: Get concise summaries of plan details
-- **Suggested Questions**: AI-generated relevant questions about your plans
-- **Export Capabilities**: Generate detailed PDF reports of your analysis
+### 🆚 Plan Comparison
+- **Side-by-side Comparison** of up to 3 plans
+- **Difference Highlighting** for easy visual comparison
+- **Custom Labeling** of plans for clarity
 
-### Security & Privacy
-- **Google OAuth Integration**: Secure user authentication
-- **Session Management**: Persistent user sessions
-- **HIPAA Considerations**: Built-in PII/PHI sanitization
-- **Secure File Handling**: Temporary file processing with automatic cleanup
+### 🧾 Export Capabilities
+- Download **AI-generated PDF reports** of plan analysis and comparisons
+
+---
+
+## 🔐 Security & Privacy
+
+- 🔒 **Google OAuth** authentication
+- 🧼 **Automatic PHI/PII Sanitization**
+- 🗑️ Temporary file processing with auto-deletion
+- 🧠 Session-based file isolation
+
+---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **React 18**: Modern UI framework
-- **Material-UI**: Polished component library
-- **React Router**: Client-side routing
-- **TypeScript**: Type-safe development
+### 🖥️ Frontend
+- **React 18 + TypeScript**
+- **Material-UI (MUI)** + **TailwindCSS** for styling
+- **Heroicons** for icons
+- **React Router** for navigation
 
-### Backend
-- **Flask**: Python web framework
-- **LangChain**: AI/LLM integration framework
-- **OpenAI**: GPT-powered analysis
-- **FAISS**: Vector similarity search
-- **PyMuPDF**: PDF processing
-- **python-docx**: DOCX file handling
+### 🧠 Backend
+- **Flask** with RESTful API design
+- **LangChain** for LLM orchestration
+- **OpenAI GPT** for answer generation
+- **FAISS** for semantic retrieval (vector search)
+- **PyMuPDF** & **python-docx** for document parsing
 
-### AI/ML Features
-- **Document Processing**: Intelligent text extraction and analysis
-- **Semantic Search**: Context-aware document querying
-- **Natural Language Processing**: Advanced text processing capabilities
+---
+
+## 🔁 RAG Architecture
+
+CoveredAI is built on a **Retrieval-Augmented Generation** pipeline:
+
+1. 🧾 **Chunk + Embed:** Each uploaded plan is split into text chunks and embedded using OpenAI embeddings.
+2. 🔍 **Retrieve:** FAISS retrieves relevant chunks based on user query.
+3. 💬 **Generate:** GPT generates accurate, context-aware answers grounded in the retrieved content.
+
+---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### ✅ Prerequisites
 - Python 3.8+
 - Node.js 16+
 - OpenAI API Key
 - Google OAuth Credentials
 
-### Environment Setup
+### 📦 Installation
 
-1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd [repository-name]
+git clone https://github.com/yourusername/coveredai.git
+cd coveredai
 ```
-
-2. Backend Setup:
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-3. Create `.env` file in backend directory:
-```env
-OPENAI_API_KEY=your_openai_api_key
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-FLASK_SECRET_KEY=your_secret_key
-```
-
-4. Frontend Setup:
-```bash
-cd frontend
-npm install
-```
-
-### Running the Application
-
-1. Start the Backend:
-```bash
-cd backend
-flask run
-```
-
-2. Start the Frontend:
-```bash
-cd frontend
-npm start
-```
-
-The application will be available at `http://localhost:3000`
 
 ## 🔒 Security Considerations
 
