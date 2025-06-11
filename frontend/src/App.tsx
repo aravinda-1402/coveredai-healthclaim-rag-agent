@@ -262,19 +262,23 @@ const App: React.FC = () => {
                 <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
                   CoveredAI
                 </h1>
-                <Link
-                  to="/"
-                  className="px-4 py-2 text-gray-600 hover:text-gray-900"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  to="/compare"
-                  className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900"
-                >
-                  <DocumentDuplicateIcon className="w-5 h-5" />
-                  Compare Plans
-                </Link>
+                {user && (
+                  <>
+                    <Link
+                      to="/"
+                      className="px-4 py-2 text-gray-600 hover:text-gray-900"
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      to="/compare"
+                      className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900"
+                    >
+                      <DocumentDuplicateIcon className="w-5 h-5" />
+                      Compare Plans
+                    </Link>
+                  </>
+                )}
               </div>
 
               {user ? (
