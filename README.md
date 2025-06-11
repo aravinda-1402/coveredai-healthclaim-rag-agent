@@ -1,4 +1,4 @@
-# 🧠 CoveredAI - Intelligent Health Insurance Plan Analysis
+# 🧠 CoveredAI - Understand Your Health Insurance in Seconds
 
 CoveredAI is a full-stack AI-powered application that helps users **analyze**, **compare**, and **understand** health insurance plans using **RAG (Retrieval-Augmented Generation)** and natural language interaction. Whether you’re a policyholder or analyst, CoveredAI extracts critical information, answers questions, and enables smarter comparisons between plans.
 
