@@ -1,4 +1,4 @@
-# Health Insurance Plan Comparison Tool
+# CoveredAI - Intelligent Health Insurance Plan Analysis
 
 A sophisticated web application that helps users analyze, compare, and understand health insurance plans using AI-powered document processing and natural language interactions.
 
