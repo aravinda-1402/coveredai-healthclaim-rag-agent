@@ -4,6 +4,32 @@ CoveredAI is a full-stack AI-powered application that helps users **analyze**, *
 
 ---
 
+## 📸 Demo
+
+Take a quick visual tour of **CoveredAI** – a smart insurance document analysis platform powered by RAG (Retrieval-Augmented Generation) and modern UI.
+
+### 🔹 Homepage – Simple & Inviting
+![Homepage](./assets/screenshots/Screenshot_2025-06-11_103334.png)
+
+### 🔹 Dashboard – Upload, Summarize, Ask, Download
+![Dashboard](./assets/screenshots/Screenshot_2025-06-11_103409.png)
+
+### 🔹 Plan Comparison – Upload and Configure
+![Compare Upload](./assets/screenshots/Screenshot_2025-06-11_103417.png)
+
+### 🔹 Q&A in Action – Ask Anything
+![Q&A Mode](./assets/screenshots/Screenshot_2025-06-11_103506.png)
+
+### 🔹 Visual Plan Comparison – Differences Highlighted
+![Compare Table](./assets/screenshots/Screenshot_2025-06-11_103535.png)
+
+---
+
+## 🎥 Video Walkthrough
+
+> ⏯️ [Click to watch the demo video](./assets/demo/demo.mp4)  
+
+---
 ## 🌟 Features
 
 ### 📄 Document Management
