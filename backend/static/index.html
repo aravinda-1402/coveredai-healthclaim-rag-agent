@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Insurance Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2c7be5;
+      --secondary: #6dd5ed;
+      --background: #f8fafc;
+      --text: #2d3748;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .header h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .header p {
+      color: #64748b;
+      font-size: 1.1rem;
+    }
+
+    .chat-container {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: slideUp 1s ease;
+    }
+
+    .chat-box {
+      min-height: 300px;
+      max-height: 500px;
+      overflow-y: auto;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #f8fafc;
+      margin-bottom: 1.5rem;
+    }
+
+    .message {
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.5s ease;
+      line-height: 1.5;
+    }
+
+    .user-message {
+      background: var(--primary);
+      color: white;
+      margin-left: 2rem;
+      position: relative;
+    }
+
+    .ai-message {
+      background: #e2e8f0;
+      margin-right: 2rem;
+      position: relative;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 1rem;
+    }
+
+    textarea {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      resize: none;
+      height: 60px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1a56db;
+      transform: translateY(-2px);
+    }
+
+    .medical-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .loading div {
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 3px;
+      animation: bounce 0.5s infinite alternate;
+    }
+
+    .loading div:nth-child(2) { animation-delay: 0.2s; }
+    .loading div:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      to { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="https://cdn-icons-png.flaticon.com/512/4006/4006511.png" alt="Medical Icon" class="medical-icon">
+      <h1>Healthcare Insurance Assistant</h1>
+      <p>Ask me anything about your healthcare insurance coverage</p>
+    </header>
+
+    <main class="chat-container">
+      <div class="chat-box" id="chatBox">
+        <div class="message ai-message">
+          Hello! I'm your healthcare insurance assistant. I can help you understand your coverage, benefits, and answer any insurance-related questions. What would you like to know?
+        </div>
+      </div>
+
+      <div class="loading" id="loading">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="input-container">
+        <textarea 
+          id="userQuestion" 
+          placeholder="Type your question here..."
+          rows="2"
+        ></textarea>
+        <button onclick="askQuestion()">Ask</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const userQuestion = document.getElementById('userQuestion');
+    const loading = document.getElementById('loading');
+
+    userQuestion.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        askQuestion();
+      }
+    });
+
+    async function askQuestion() {
+      const question = userQuestion.value.trim();
+      if (!question) return;
+
+      // Add user message
+      appendMessage(question, 'user');
+      userQuestion.value = '';
+
+      // Show loading
+      loading.style.display = 'block';
+
+      try {
+        const res = await fetch("/rag_query", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+
+        const data = await res.json();
+        appendMessage(data.answer || data.error || 'Sorry, I could not process your request.', 'ai');
+      } catch (error) {
+        appendMessage('Sorry, there was an error processing your request.', 'ai');
+      } finally {
+        loading.style.display = 'none';
+      }
+    }
+
+    function appendMessage(text, type) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${type}-message`;
+      messageDiv.textContent = text;
+      chatBox.appendChild(messageDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
