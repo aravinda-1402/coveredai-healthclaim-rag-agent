@@ -7,7 +7,6 @@ A sophisticated web application that helps users analyze, compare, and understan
 ### Document Management
 - **Secure Upload**: Support for PDF and DOCX insurance documents
 - **Document Validation**: Automatic verification of insurance-related documents
-- **PII/PHI Protection**: Automatic sanitization of sensitive personal information
 
 ### Plan Analysis
 - **Smart Extraction**: Automatically extracts key benefits and coverage details
