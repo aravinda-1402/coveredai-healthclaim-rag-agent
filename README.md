@@ -3,6 +3,10 @@
 CoveredAI is a full-stack AI-powered application that helps users **analyze**, **compare**, and **understand** health insurance plans using **RAG (Retrieval-Augmented Generation)** and natural language interaction. Whether you’re a policyholder or analyst, CoveredAI extracts critical information, answers questions, and enables smarter comparisons between plans.
 
 ---
+## 🎥 Video Walkthrough
+
+> ⏯️ [Click to watch the demo video](./assets/demo/demo.mp4)
+---
 
 ## 📸 Demo
 
@@ -12,24 +16,19 @@ Take a quick visual tour of **CoveredAI** – a smart insurance document analysi
 ![Homepage](assets/Homepage.png)
 
 ### 🔹 Dashboard – Upload, Summarize, Ask, Download
-![Dashboard](assets/creenshots/Screenshot_2025-06-11_103409.png)
+![Dashboard](assets/Dashboard.png)
 
 ### 🔹 Plan Comparison – Upload and Configure
-![Compare Upload](./assets/screenshots/Screenshot_2025-06-11_103417.png)
+![Compare Upload](assets/PlanComp.png)
 
 ### 🔹 Q&A in Action – Ask Anything
-![Q&A Mode](./assets/screenshots/Screenshot_2025-06-11_103506.png)
+![Q&A Mode](assets/QA.png)
 
 ### 🔹 Visual Plan Comparison – Differences Highlighted
-![Compare Table](./assets/screenshots/Screenshot_2025-06-11_103535.png)
+![Compare Table](assets/VisualDiff.png)
 
 ---
 
-## 🎥 Video Walkthrough
-
-> ⏯️ [Click to watch the demo video](./assets/demo/demo.mp4)  
-
----
 ## 🌟 Features
 
 ### 📄 Document Management
